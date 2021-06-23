@@ -22,9 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-rvtbnqq4rf2uhnqjkjc80hxzdo0ld-3i5k^%2g6%ik0dtfm07-'
-
+env = os.environ.copy()
+SECRET_KEY = env['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -131,8 +130,8 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 cloudinary.config( 
-  cloud_name = "dnxu9us5t", 
-  api_key = "545695252616441", 
-  api_secret = "WA8UYVPY8sOWV2Qf6WqR7xt7jDM",
+  cloud_name = env['cloud_name'], 
+  api_key = env['api_key'], 
+  api_secret = env['api_secret'],
   #secure = true
 )
